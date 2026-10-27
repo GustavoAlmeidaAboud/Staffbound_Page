@@ -4,7 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Staffbound | Every Staff Has Its Roots — Rootlight Games</title>
-  <meta name="description" content="Staffbound mixes soft top-down 2.5D exploration with side-scrolling platforming. Brew tonics, wield elemental staves, and raise mandrake companions." />
+  <meta name="description" content="Staffbound mixes soft top-down 2.5D exploration with side-scrolling platforming. Brew tonics, wield elemental staves, and raise mandrake companions. Live on Kickstarter, coming soon to Steam." />
+  <meta name="theme-color" content="#0c1610" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Rootlight Games" />
+  <meta property="og:title" content="Staffbound | Every Staff Has Its Roots" />
+  <meta property="og:description" content="A cozy 2.5D witch adventure. Live on Kickstarter · Coming soon to Steam." />
+  <meta property="og:url" content="https://rootlightgames.com/" />
+  <meta property="og:image" content="https://rootlightgames.com/assets/og_image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://rootlightgames.com/assets/og_image.jpg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_32.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -407,6 +418,75 @@
       background: #050907;
     }
 
+    /* ===== Enhancements (27 Oct) ===== */
+    html { scroll-padding-top: 64px; }
+    body { padding-bottom: env(safe-area-inset-bottom, 0px); }
+    nav { transition: padding .3s, background .3s; }
+    nav.scrolled { padding-top: .55rem; padding-bottom: .55rem; background: rgba(12, 22, 16, 0.97); }
+    .brand-logo { height: 30px; width: auto; display: block; }
+
+    .hero-logo { width: min(84%, 420px); height: auto; margin: 0 auto .35rem; display: block; filter: drop-shadow(0 6px 20px rgba(0,0,0,.6)); }
+    .live-row { display: inline-flex; align-items: center; gap: .5rem; margin-bottom: 1rem; font-size: .85rem; font-weight: 800; color: var(--lantern-gold); }
+    .live-dot { width: 9px; height: 9px; border-radius: 50%; background: #5ee08f; animation: ping 1.8s infinite; }
+    @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(94,224,143,.6); } 80%,100% { box-shadow: 0 0 0 10px rgba(94,224,143,0); } }
+    .steam-soon { margin-top: .9rem; font-size: .88rem; font-weight: 700; color: var(--text-muted); letter-spacing: .03em; }
+
+    .video-frame { border-radius: 16px; overflow: hidden; border: 2px solid var(--border-wood); background: #000; aspect-ratio: 16 / 9; box-shadow: 0 16px 40px rgba(0,0,0,.55); }
+    .video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .feature-media video { width: 100%; height: auto; display: block; }
+    .feature-media.tall { max-width: 460px; margin: 0 auto; }
+
+    /* Fade-in as you scroll */
+    .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    /* Guardians: swipe row on phones */
+    .swipe { display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -1rem; padding: .25rem 1rem .75rem; scrollbar-width: none; }
+    .swipe::-webkit-scrollbar { display: none; }
+    .guardian { scroll-snap-align: center; background: var(--bg-card); border: 1px solid var(--border-wood); border-radius: 14px; overflow: hidden; cursor: pointer; }
+    .guardian img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+    .guardian div { padding: .85rem 1rem 1rem; }
+    .guardian b { display: block; font-family: 'Cinzel Decorative', serif; color: var(--lantern-gold); font-size: 1.05rem; }
+    .guardian span { color: var(--text-muted); font-size: .9rem; }
+    .swipe-hint { text-align: right; font-size: .8rem; font-weight: 800; color: var(--sage-green); margin-top: .25rem; }
+
+    /* Riddle scroll */
+    .riddle-card { max-width: 640px; margin: 0 auto; padding: 1.6rem 1.2rem 1.2rem; border-radius: 10px; color: #3b2a17; position: relative;
+      background: radial-gradient(130% 90% at 50% 50%, transparent 55%, rgba(120,80,30,.25)), linear-gradient(180deg, #f7ecd2, #f3e6c8 60%, #e9d5a8);
+      box-shadow: 0 18px 40px rgba(0,0,0,.5); }
+    .riddle-card::before, .riddle-card::after { content: ""; position: absolute; left: -7px; right: -7px; height: 14px; border-radius: 7px; background: linear-gradient(180deg, #a77b40, #6d4a20); }
+    .riddle-card::before { top: -7px; } .riddle-card::after { bottom: -7px; }
+    .r-title { text-align: center; font-family: 'Cinzel Decorative', serif; font-weight: 900; color: #7a3420; margin-bottom: .6rem; }
+    .r-body { text-align: center; font-style: italic; font-size: 1.02rem; line-height: 1.6; }
+    .r-ask { margin-top: .4rem; font-weight: 800; font-style: normal; }
+    .r-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin: 1rem 0 .4rem; }
+    .r-opt { min-height: 46px; border-radius: 10px; border: 1.5px solid rgba(59,42,23,.35); background: rgba(255,255,255,.45); font: 700 .92rem 'Plus Jakarta Sans', sans-serif; color: #3b2a17; cursor: pointer; }
+    .r-opt.right { background: #9fd8a9; border-color: #2f6b3a; }
+    .r-opt.wrong { background: #eab3a2; border-color: #8a3b26; }
+    .r-msg { min-height: 1.5em; text-align: center; font-style: italic; margin: .4rem 0; }
+    .r-nav { display: flex; justify-content: space-between; align-items: center; font-size: .82rem; font-weight: 800; }
+    .r-next { min-height: 42px; padding: 0 1rem; border: 0; border-radius: 10px; background: #3b2a17; color: #f3e6c8; font-weight: 800; cursor: pointer; }
+
+    /* Lightbox arrows + close */
+    .lb-btn { position: absolute; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--border-wood); background: rgba(12,22,16,.85); color: var(--lantern-gold); font-size: 1.8rem; line-height: 1; cursor: pointer; }
+    .lb-close { top: calc(12px + env(safe-area-inset-top, 0px)); right: 12px; }
+    .lb-prev { left: 8px; top: 50%; margin-top: -23px; }
+    .lb-next { right: 8px; top: 50%; margin-top: -23px; }
+
+    /* Sticky Kickstarter button on phones */
+    .dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; padding: .6rem 1rem calc(.6rem + env(safe-area-inset-bottom, 0px));
+      background: linear-gradient(180deg, rgba(12,22,16,0), rgba(12,22,16,.95) 35%); transform: translateY(110%); transition: transform .35s ease; }
+    .dock.show { transform: none; }
+    .dock a { display: block; text-align: center; padding: .9rem 1rem; border-radius: 12px; font-weight: 800; text-decoration: none; color: #1c1304;
+      background: linear-gradient(135deg, var(--lantern-gold) 0%, #eab308 100%); box-shadow: 0 8px 25px var(--lantern-glow); }
+    footer { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .live-dot { animation: none; }
+    }
+
     /* Desktop Media Query (Expands layout smoothly on tablets and PCs) */
     @media (min-width: 768px) {
       nav { padding: 0.9rem 5%; }
@@ -427,19 +507,29 @@
       .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
       .roadmap-step { flex-direction: row; align-items: center; gap: 1.5rem; padding: 1.25rem 1.6rem; }
       .step-date { min-width: 110px; font-size: 1.02rem; }
+      .brand-logo { height: 38px; }
+      .swipe { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); grid-auto-columns: auto; overflow: visible; margin: 0; padding: 0; }
+      .swipe-hint { display: none; }
+      .r-opts { grid-template-columns: repeat(4, 1fr); }
+      .riddle-card { padding: 2rem 2.2rem 1.4rem; }
+      .lb-prev { left: 24px; } .lb-next { right: 24px; }
+      .dock { display: none; }
+      footer { padding-bottom: 1.5rem; }
     }
 
     @media (max-width: 480px) {
       .nav-links a.link { display: none; }
     }
   </style>
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
   <!-- Top Navigation -->
   <nav>
-    <div class="brand">🌿 STAFFBOUND</div>
+    <a href="#" class="brand" aria-label="Staffbound, back to top"><img class="brand-logo" src="assets/logo_600.png" alt="Staffbound" width="600" height="199" /></a>
     <div class="nav-links">
+      <a href="#trailer" class="link">Trailer</a>
       <a href="#features" class="link">Gameplay</a>
       <a href="#screenshots" class="link">Gallery</a>
       <a href="#roadmap" class="link">Roadmap</a>
@@ -452,20 +542,35 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-card">
-      <span class="badge">Rootlight Games • Live on Kickstarter</span>
-      <h1>STAFFBOUND</h1>
+      <span class="badge">Rootlight Games</span>
+      <h1><img class="hero-logo" src="assets/logo_600.png" alt="Staffbound" width="600" height="199" /></h1>
       <div class="subtitle">Every Staff Has Its Roots</div>
       <p>
-        Step into a hand-crafted world mixing soft top-down 2.5D exploration with side-scrolling platforming combat. Brew tonics in your cauldron, raise screaming mandrakes, and master elemental staves with Lulu.
+        Step into a cozy, painted world mixing soft top-down 2.5D exploration with side-scrolling platforming combat. Brew tonics in your cauldron, raise screaming mandrakes, and master elemental staves with Lulu.
       </p>
+      <div class="live-row"><span class="live-dot" aria-hidden="true"></span><span>Live on Kickstarter · <span id="daysLeft">ends 16 Dec</span></span></div>
       <div class="cta-row">
         <a href="https://www.kickstarter.com/projects/rootlightgames/staffbound-every-staff-has-its-roots?ref=vc08z7" target="_blank" rel="noopener" class="btn-primary">
           Support on Kickstarter →
         </a>
-        <a href="#features" class="btn-outline">
-          Explore Gameplay ↓
+        <a href="#trailer" class="btn-outline">
+          Watch the Trailer ↓
         </a>
       </div>
+      <div class="steam-soon">Coming soon to Steam</div>
+    </div>
+  </section>
+
+  <!-- Trailer -->
+  <section id="trailer" class="container">
+    <div class="section-head">
+      <h2>Watch the Trailer</h2>
+      <p>One painted forest, one little witch, a lot of roots.</p>
+    </div>
+    <div class="video-frame reveal">
+      <video id="trailerVid" controls playsinline preload="none" poster="media/trailer_poster.jpg">
+        <source src="media/staffbound_trailer_720p.mp4" type="video/mp4" />
+      </video>
     </div>
   </section>
 
@@ -477,7 +582,7 @@
     </div>
 
     <!-- 1. Side-Scrolling Combat -->
-    <div class="feature-row">
+    <div class="feature-row reveal">
       <div class="feature-media" onclick="openLightbox('images/attacking_right.gif')">
         <img src="images/attacking_right.gif" alt="Side-scrolling staff combat in Mossfall Ravine" loading="lazy" />
       </div>
@@ -499,7 +604,7 @@
     </div>
 
     <!-- 2. Witch Crafting & Cauldron -->
-    <div class="feature-row reverse">
+    <div class="feature-row reverse reveal">
       <div class="feature-media" onclick="openLightbox('images/Cauldron.png')">
         <img src="images/Cauldron.png" alt="Lulu brewing tonics at her cauldron in The Hollow Within" loading="lazy" />
       </div>
@@ -518,7 +623,7 @@
     </div>
 
     <!-- 3. Mandrakes & Companions -->
-    <div class="feature-row">
+    <div class="feature-row reveal">
       <div class="feature-media" onclick="openLightbox('images/mandrake.gif')">
         <img src="images/mandrake.gif" alt="Lulu harvesting screaming mandrake companions in Home Glade" loading="lazy" />
       </div>
@@ -537,22 +642,97 @@
     </div>
 
     <!-- 4. Dynamic Day/Night & Exploration -->
-    <div class="feature-row reverse">
+    <div class="feature-row reverse reveal">
       <div class="feature-media" onclick="openLightbox('images/night.gif')">
         <img src="images/night.gif" alt="Nighttime exploration and gathering glowing seed pods in Staffbound" loading="lazy" />
       </div>
       <div class="feature-info">
-        <span class="kicker">Dynamic Weather &amp; Boss Battles</span>
-        <h3>Living World &amp; Creature Book</h3>
+        <span class="kicker">Dynamic Weather &amp; Puzzles</span>
+        <h3>A Living World</h3>
         <p>
-          Experience dynamic weather across night, rain, and snow as Lulu solves puzzles to track down mystical creatures in her <strong>Creature Book</strong> and battles living oaks, spore cap-monsters, and graveyard liches.
+          Lanterns glow at dusk, seed pods shine at night, and rain and snow roll through the glade. Solve root-and-rune puzzles, and keep your eyes open: the forest keeps its own secrets, and only the curious will find them.
         </p>
         <div class="skill-pills">
           <span class="skill-pill">Day / Night / Weather</span>
-          <span class="skill-pill">Creature Book</span>
-          <span class="skill-pill">Boss Puzzles</span>
+          <span class="skill-pill">Root &amp; Rune Puzzles</span>
+          <span class="skill-pill">Forest Secrets</span>
         </div>
       </div>
+    </div>
+
+    <!-- 5. Hexes & Polymorph -->
+    <div class="feature-row reveal">
+      <div class="feature-media tall">
+        <video muted loop playsinline preload="none" poster="media/polymorph_poof.jpg" data-src="media/polymorph_poof.mp4"></video>
+      </div>
+      <div class="feature-info">
+        <span class="kicker">Hexes &amp; Witch Tricks</span>
+        <h3>Poof! You're a Sheep</h3>
+        <p>
+          Not every fight needs a fight. Cast <strong>Polymorph</strong> and turn a snarling wolf into something much fluffier. Being a witch is about being clever.
+        </p>
+        <div class="skill-pills">
+          <span class="skill-pill">Polymorph</span>
+          <span class="skill-pill">Hexes</span>
+          <span class="skill-pill">Witch Tricks</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Broom Derby -->
+    <div class="feature-row reverse reveal">
+      <div class="feature-media" onclick="openLightbox('assets/shots/derby_windmill.jpg')">
+        <img src="assets/shots/derby_windmill.jpg" alt="Lulu racing other witches on brooms past a windmill" loading="lazy" />
+      </div>
+      <div class="feature-info">
+        <span class="kicker">Broom Racing</span>
+        <h3>The Grand Broom Derby</h3>
+        <p>
+          Hop on your broom and race the other witches over hills and windmills: three laps, with spells flying everywhere.
+        </p>
+        <div class="skill-pills">
+          <span class="skill-pill">Broom Flight</span>
+          <span class="skill-pill">Races</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guardians -->
+  <section id="guardians" class="container">
+    <div class="section-head">
+      <h2>Three Ancient Guardians</h2>
+      <p>Each one is a puzzle as much as a fight.</p>
+    </div>
+    <div class="swipe reveal">
+      <div class="guardian" onclick="openLightbox('images/Untitled%20design.gif')">
+        <img src="assets/shots/guardian_bramblewood.jpg" alt="The lantern puzzle of Elder Bramblewood" loading="lazy" />
+        <div><b>Elder Bramblewood</b><span>Light the three lanterns, and the old tree wakes.</span></div>
+      </div>
+      <div class="guardian" onclick="openLightbox('assets/shots/hexcap.jpg')">
+        <img src="assets/shots/hexcap.jpg" alt="Lulu facing the Hexcap mushroom boss" loading="lazy" />
+        <div><b>The Hexcap</b><span>A grumpy mushroom with a very silly hex.</span></div>
+      </div>
+      <div class="guardian" onclick="openLightbox('images/licht.gif')">
+        <img src="assets/shots/lich_king.jpg" alt="Lulu facing the Lich King" loading="lazy" />
+        <div><b>The Lich King</b><span>He wants Lulu's little light for himself.</span></div>
+      </div>
+    </div>
+    <div class="swipe-hint" aria-hidden="true">Swipe →</div>
+  </section>
+
+  <!-- Riddle -->
+  <section id="riddle" class="container">
+    <div class="section-head">
+      <h2>A Riddle from the Glade</h2>
+      <p>In the Home Glade, everyone talks in riddles. Can you solve this one?</p>
+    </div>
+    <div class="riddle-card reveal">
+      <div class="r-title" id="rTitle">Granny Hazel's Kitchen Riddle</div>
+      <div class="r-body" id="rBody">I have a belly but never eat,<br>three short legs but never feet.<br>Feed me roots and a moonlit flower,<br>and I'll bubble you up a little power.<div class="r-ask">What am I?</div></div>
+      <div class="r-opts" id="rOpts"></div>
+      <div class="r-msg" id="rMsg" aria-live="polite"></div>
+      <div class="r-nav"><span id="rCount"></span><button class="r-next" id="rNext" type="button">Next riddle</button></div>
     </div>
   </section>
 
@@ -574,14 +754,14 @@
         <div class="gallery-caption">Atmosphere &amp; Lighting Test</div>
       </div>
 
-      <div class="gallery-card" onclick="openLightbox('images/collection.png')">
-        <img src="images/collection.png" alt="Collection interface" loading="lazy" />
-        <div class="gallery-caption">Item &amp; Creature Collection System</div>
+      <div class="gallery-card" onclick="openLightbox('assets/shots/glade_day.jpg')">
+        <img src="assets/shots/glade_day.jpg" alt="The Home Glade and the Heartwood tree by day" loading="lazy" />
+        <div class="gallery-caption">The Home Glade &amp; the Heartwood</div>
       </div>
 
-      <div class="gallery-card" onclick="openLightbox('images/companion%20wardrobe.png')">
-        <img src="images/companion%20wardrobe.png" alt="Companion wardrobe interface" loading="lazy" />
-        <div class="gallery-caption">Companion Wardrobe &amp; Customization</div>
+      <div class="gallery-card" onclick="openLightbox('assets/shots/puzzle_rootway.jpg')">
+        <img src="assets/shots/puzzle_rootway.jpg" alt="The Rootway rune stones puzzle" loading="lazy" />
+        <div class="gallery-caption">Root &amp; Rune Puzzles</div>
       </div>
 
       <div class="gallery-card" onclick="openLightbox('images/camera%20perspective%20low.gif')">
@@ -592,6 +772,21 @@
       <div class="gallery-card" onclick="openLightbox('images/Untitled%20design.gif')">
         <img src="images/Untitled%20design.gif" alt="Bramblewood Grove gameplay" loading="lazy" />
         <div class="gallery-caption">Bramblewood Grove — Quests &amp; Environment</div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('assets/shots/whisperwood.jpg')">
+        <img src="assets/shots/whisperwood.jpg" alt="Lulu in the misty Whisperwood" loading="lazy" />
+        <div class="gallery-caption">The Misty Whisperwood</div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('assets/shots/hollows_lanterns.jpg')">
+        <img src="assets/shots/hollows_lanterns.jpg" alt="A great tree hung with lanterns at night" loading="lazy" />
+        <div class="gallery-caption">Lantern Night in the Hollows</div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('assets/shots/mossfall_ravine.jpg')">
+        <img src="assets/shots/mossfall_ravine.jpg" alt="Mossfall Ravine with glowing purple mushrooms" loading="lazy" />
+        <div class="gallery-caption">Mossfall Ravine</div>
       </div>
     </div>
   </section>
@@ -634,25 +829,141 @@
     <a href="https://www.kickstarter.com/projects/rootlightgames/staffbound-every-staff-has-its-roots?ref=vc08z7" target="_blank" rel="noopener" class="btn-primary" style="display: inline-block; width: auto; padding: 1rem 2.5rem;">
       Visit the Kickstarter Page →
     </a>
+    <p style="margin: 1.25rem auto 0; font-size: .92rem;">Coming soon to Steam · Follow us on <a href="https://www.instagram.com/rootlightgames/" target="_blank" rel="noopener" style="color: var(--lantern-gold); font-weight: 700;">Instagram</a></p>
   </section>
 
   <footer>
     &copy; 2026 Rootlight Games. All rights reserved.
   </footer>
 
+  <!-- Sticky Kickstarter button (phones) -->
+  <div class="dock" id="dock"><a href="https://www.kickstarter.com/projects/rootlightgames/staffbound-every-staff-has-its-roots?ref=vc08z7" target="_blank" rel="noopener">Back Staffbound on Kickstarter →</a></div>
+
   <!-- Fullscreen Lightbox -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Fullscreen view" />
+    <button class="lb-btn lb-close" type="button" aria-label="Close" onclick="closeLightbox()">&times;</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous" onclick="event.stopPropagation(); stepLightbox(-1)">&#8249;</button>
+    <img id="lightbox-img" src="" alt="Fullscreen view" onclick="event.stopPropagation()" />
+    <button class="lb-btn lb-next" type="button" aria-label="Next" onclick="event.stopPropagation(); stepLightbox(1)">&#8250;</button>
   </div>
 
   <script>
+    /* Lightbox: tap to open, swipe or arrows to browse, Esc / tap outside to close */
+    var lbList = [], lbIndex = 0;
+    function lbCollect() {
+      lbList = [];
+      document.querySelectorAll('[onclick^="openLightbox"]').forEach(function (el) {
+        var m = el.getAttribute('onclick').match(/openLightbox\('([^']+)'\)/);
+        if (m && lbList.indexOf(m[1]) < 0) lbList.push(m[1]);
+      });
+    }
     function openLightbox(src) {
+      if (!lbList.length) lbCollect();
+      lbIndex = Math.max(0, lbList.indexOf(src));
       document.getElementById('lightbox-img').src = src;
       document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function stepLightbox(d) {
+      if (!lbList.length) return;
+      lbIndex = (lbIndex + d + lbList.length) % lbList.length;
+      document.getElementById('lightbox-img').src = lbList[lbIndex];
     }
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
     }
+    document.addEventListener('keydown', function (e) {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') stepLightbox(-1);
+      if (e.key === 'ArrowRight') stepLightbox(1);
+    });
+    (function () {
+      var lb = document.getElementById('lightbox'), sx = null;
+      lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener('touchend', function (e) {
+        if (sx === null) return;
+        var dx = e.changedTouches[0].clientX - sx;
+        if (Math.abs(dx) > 40) stepLightbox(dx < 0 ? 1 : -1);
+        sx = null;
+      });
+    })();
+
+    (function () {
+      var io = 'IntersectionObserver' in window;
+      var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* Days left in the campaign (ends 16 Dec 2026) */
+      var dl = document.getElementById('daysLeft');
+      var days = Math.ceil((new Date('2026-12-16T23:59:59') - new Date()) / 86400000);
+      if (dl) dl.textContent = days > 1 ? days + ' days to go' : days === 1 ? 'last day!' : 'thank you, backers!';
+
+      /* Nav shrinks; sticky Kickstarter button after the hero, hidden near the final call */
+      var nav = document.querySelector('nav'), dock = document.getElementById('dock');
+      var hero = document.querySelector('.hero'), endCta = document.querySelector('.footer-cta'), nearEnd = false;
+      function onScroll() {
+        var y = window.scrollY || window.pageYOffset;
+        nav.classList.toggle('scrolled', y > 40);
+        dock.classList.toggle('show', y > hero.offsetHeight * 0.7 && !nearEnd);
+      }
+      if (io) new IntersectionObserver(function (e) { nearEnd = e[0].isIntersecting; onScroll(); }).observe(endCta);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* Fade sections in as they scroll into view */
+      var rev = document.querySelectorAll('.reveal');
+      if (io && !calm) {
+        var ro = new IntersectionObserver(function (en) {
+          en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); ro.unobserve(x.target); } });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+        rev.forEach(function (el) { ro.observe(el); });
+      } else rev.forEach(function (el) { el.classList.add('in'); });
+
+      /* Clips load and play only while on screen (saves mobile data) */
+      document.querySelectorAll('video[data-src]').forEach(function (v) {
+        function load() { if (!v.src) v.src = v.dataset.src; }
+        if (!io || calm) { v.controls = true; v.addEventListener('play', load, { once: true }); return; }
+        new IntersectionObserver(function (e) {
+          if (e[0].isIntersecting) { load(); var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); }
+          else v.pause();
+        }, { threshold: 0.4 }).observe(v);
+      });
+      var tv = document.getElementById('trailerVid');
+      if (io && tv) new IntersectionObserver(function (e) { if (!e[0].isIntersecting) tv.pause(); }, { threshold: 0.2 }).observe(tv);
+
+      /* Riddle scroll (no spoilers) */
+      var R = [
+        { t: "Granny Hazel's Kitchen Riddle", l: ['I have a belly but never eat,', 'three short legs but never feet.', 'Feed me roots and a moonlit flower,', "and I'll bubble you up a little power."], o: ['A teapot', 'A pumpkin', 'A frog', 'A cauldron'], k: 3, w: 'Summon it anywhere and brew what you grow.' },
+        { t: "Elder Bramblewood's Scroll", l: ['I sleep in the dark in a coat buttoned tight;', 'no legs and no wings, yet I climb to the light.', 'A whole old tree lies folded in me:', 'give me some patience, and soon you will see.'], o: ['A pebble', 'A seed', 'An egg', 'A snail'], k: 1, w: 'Elder Bramblewood himself was once one.' },
+        { t: "The Hexcap's Sealed Scroll", l: ['My coat was never stitched or sewn,', "yet every spring it's shorn and grown.", 'You count me when the night is deep;', 'a little hex turns foes to me.'], o: ['A willow tree', 'A cloud', 'A sheep', 'A hedgehog'], k: 2, w: 'Baa. Lulu knows a spell for that.' },
+        { t: "Marigold's Racing Riddle", l: ['By day I lean behind the door', 'and only ever sweep the floor.', 'By night I race the moon up high:', 'sit on my back, and off we fly!'], o: ['A kite', 'An owl', 'A broom', 'A cloud'], k: 2, w: 'Hop on for the Grand Broom Derby.' },
+        { t: "The Lich King's Sealed Scroll", l: ['I am a lantern no hand ever lit;', 'a sickle, a coin, then a sliver of it.', "I silver the graves, but I'm never in one;", "the Lich's lamp is out, and I'm still not done."], o: ['A candle', "A will-o'-the-wisp", 'A ghost', 'The moon'], k: 3, w: 'The Moonbell flowers are named after it.' },
+        { t: 'The Last Scroll', l: ['I was a branch until I was found;', "a witch's hands then wound me round.", 'I point the way and light the spark;', 'my roots still remember the dark.'], o: ['A staff', 'A wand', 'A broom', 'A root'], k: 0, w: 'Every staff has its roots.' }
+      ];
+      var i = 0, T = document.getElementById('rTitle'), B = document.getElementById('rBody'),
+          O = document.getElementById('rOpts'), M = document.getElementById('rMsg'), C = document.getElementById('rCount');
+      function draw() {
+        var r = R[i];
+        T.textContent = r.t;
+        B.textContent = '';
+        r.l.forEach(function (line, n) { if (n) B.appendChild(document.createElement('br')); B.appendChild(document.createTextNode(line)); });
+        var ask = document.createElement('div'); ask.className = 'r-ask'; ask.textContent = 'What am I?'; B.appendChild(ask);
+        O.textContent = ''; M.textContent = '';
+        r.o.forEach(function (opt, j) {
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'r-opt'; b.textContent = opt;
+          b.onclick = function () {
+            O.querySelectorAll('.r-opt').forEach(function (x, n) { x.disabled = true; if (n === r.k) x.classList.add('right'); });
+            if (j !== r.k) b.classList.add('wrong');
+            M.textContent = (j === r.k ? 'Right! ' : 'Not quite. ') + r.w;
+          };
+          O.appendChild(b);
+        });
+        C.textContent = 'Scroll ' + (i + 1) + ' of ' + R.length;
+      }
+      document.getElementById('rNext').onclick = function () { i = (i + 1) % R.length; draw(); };
+      draw();
+    })();
   </script>
 
 </body>
