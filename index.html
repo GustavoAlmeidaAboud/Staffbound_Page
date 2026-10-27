@@ -959,6 +959,25 @@
       });
       if (tv) tv.addEventListener('play', function () { if (!au.paused) { au.pause(); setPlaying(false); } });
 
+      /* Autoplay: try right away; browsers usually block sound until the first tap, click or key, so start on that instead.
+         Visitors who paused it before (remembered in this browser) are left in peace. */
+      var muted = false; try { muted = localStorage.getItem('sb_music_off') === '1'; } catch (e) {}
+      function tryStart() {
+        if (muted || !au.paused) return;
+        au.volume = 0.5; au.preload = 'auto';
+        var p = au.play();
+        if (p && p.then) p.then(function () { setPlaying(true); stopWaiting(); }).catch(function () {});
+      }
+      var evs = ['pointerdown', 'touchend', 'keydown'];
+      function onFirst(e) { if (e && e.target && e.target.closest && e.target.closest('#musicBtn')) return; tryStart(); }
+      function stopWaiting() { evs.forEach(function (n) { document.removeEventListener(n, onFirst, true); }); }
+      if (!muted) { evs.forEach(function (n) { document.addEventListener(n, onFirst, true); }); tryStart(); }
+      mb.addEventListener('click', function () {
+        muted = au.paused; /* the click handler above already toggled play/pause */
+        try { localStorage.setItem('sb_music_off', muted ? '1' : '0'); } catch (e) {}
+        stopWaiting();
+      });
+
       /* Riddle scroll (no spoilers) */
       var R = [
         { t: "Granny Hazel's Kitchen Riddle", l: ['I have a belly but never eat,', 'three short legs but never feet.', 'Feed me roots and a moonlit flower,', "and I'll bubble you up a little power."], o: ['A teapot', 'A pumpkin', 'A frog', 'A cauldron'], k: 3, w: 'Summon it anywhere and brew what you grow.' },
